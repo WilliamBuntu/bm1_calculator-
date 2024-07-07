@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'results_page.dart';
+// import 'package:flutter/widgets.dart';
+import 'row_button.dart';
 import 'reusable_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_column.dart';
@@ -108,24 +110,45 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-              child: Row(children: [
+              child: Row(children: <Widget>[
             Expanded(
               child: ReusableCard(
                 colour: activeCardColor,
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  
-                  children: [
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+
+                  children: <Widget>[
                     const Text(
                       "WIEGHT",
                       style: labelTextStyle,
                     ),
                     Text(weight.toString(), style: kNumberTextStyle),
-                    FloatingActionButton(
-                      onPressed: () {},
-                      backgroundColor: const Color(0xFF4C4F5E),
-
-                      child: const Icon(Icons.add),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RowButton(
+                          onpress: () {
+                            setState(() {
+                              weight--;
+                            });
+                          },
+                          icon: const Icon(
+                            FontAwesomeIcons.minus,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 7,
+                        ),
+                        RowButton(
+                          onpress: () {
+                            setState(() {
+                              weight++;
+                            });
+                          },
+                          icon: const Icon(FontAwesomeIcons.plus),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -134,17 +157,63 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: ReusableCard(
                 colour: activeCardColor,
-                cardChild: const Column(
-                  children: [],
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "AGE",
+                      style: labelTextStyle,
+                    ),
+                    Text(age.toString(), style: kNumberTextStyle),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RowButton(
+                          onpress: () {
+                            setState(() {
+                              age--;
+                            });
+                          },
+                          icon: const Icon(
+                            FontAwesomeIcons.minus,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 7,
+                        ),
+                        RowButton(
+                          onpress: () {
+                            setState(() {
+                              age++;
+                            });
+                          },
+                          icon: const Icon(FontAwesomeIcons.plus),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
           ])),
-          Container(
-            color: buttomContainerColor,
-            margin: const EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: buttomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ResultsPage()));
+            },
+            child: Container(
+              color: buttomContainerColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: buttomContainerHeight,
+              child: const Center(
+                child: Text('Calculate',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold)),
+              ),
+            ),
           )
         ],
       ),

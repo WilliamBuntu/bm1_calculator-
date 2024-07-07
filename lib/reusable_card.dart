@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({required this.colour, this.cardChild = const SizedBox()});
+  const ReusableCard(
+      {super.key, required this.colour, this.cardChild = const SizedBox()});
 
   final Color colour;
   final Widget cardChild;

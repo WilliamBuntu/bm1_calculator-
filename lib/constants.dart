@@ -4,6 +4,7 @@ const buttomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
 const buttomContainerColor = Color(0xFFEB1555);
 const inactiveCardColor = Color(0xFF111328);
+int age = 19;
 
 const labelTextStyle = TextStyle(
   fontSize: 18.0,
@@ -11,6 +12,6 @@ const labelTextStyle = TextStyle(
 );
 
 const kNumberTextStyle = TextStyle(
-  fontSize: 50.0,
+  fontSize: 40.0,
   fontWeight: FontWeight.w900,
 );

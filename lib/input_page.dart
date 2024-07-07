@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'reusable_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_column.dart';
@@ -16,6 +17,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,8 +112,22 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: ReusableCard(
                 colour: activeCardColor,
-                cardChild: const Column(
-                  children: [],
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  
+                  children: [
+                    const Text(
+                      "WIEGHT",
+                      style: labelTextStyle,
+                    ),
+                    Text(weight.toString(), style: kNumberTextStyle),
+                    FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: const Color(0xFF4C4F5E),
+
+                      child: const Icon(Icons.add),
+                    ),
+                  ],
                 ),
               ),
             ),

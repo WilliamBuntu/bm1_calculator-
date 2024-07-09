@@ -1,4 +1,4 @@
-import 'package:bm1/results_page.dart';
+// import 'package:bm1/results_page.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 
@@ -20,7 +20,7 @@ class BMICalculaator extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const InputPage(),
-        '/results': (context) => const ResultsPage(),
+        // '/results': (context) => const ResultsPage(),
       },
     );
   }

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class ReusableColumn extends StatelessWidget {
-  ReusableColumn({required this.label, required this.icon});
+  const ReusableColumn(
+      {super.key, required this.label, required this.icon});
 
   final String label;
   final IconData icon;

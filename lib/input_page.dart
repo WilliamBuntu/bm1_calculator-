@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'results_page.dart';
+import 'calculator_brain.dart';
 // import 'package:flutter/widgets.dart';
 import 'row_button.dart';
 import 'reusable_card.dart';
@@ -198,20 +199,24 @@ class _InputPageState extends State<InputPage> {
           ])),
           GestureDetector(
             onTap: () {
+              CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+             
+
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ResultsPage()));
+                  MaterialPageRoute(builder: (context) =>  ResultsPage(
+                    bmiResults: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                    )));
             },
             child: Container(
               color: buttomContainerColor,
               margin: const EdgeInsets.only(top: 10.0),
               width: double.infinity,
               height: buttomContainerHeight,
+              padding: const EdgeInsets.only(bottom: 15.0),
               child: const Center(
-                child: Text('Calculate',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold)),
+                child: Text('Calculate', style: klargeButton),
               ),
             ),
           )
